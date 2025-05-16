@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h1 class="display-5 fw-bold" id="scriptTitle">Generated Script</h1>
+        <div class="d-flex justify-content-between align-items-center my-3">
+            <span class="badge bg-primary fs-6 py-2" id="scriptCategory">Category</span>
+            <div>
+                <button class="btn btn-sm btn-outline-primary me-2" id="copyScript">
+                    <i class="fas fa-copy me-1"></i> Copy
+                </button>
+                <button class="btn btn-sm btn-outline-secondary" id="downloadScript">
+                    <i class="fas fa-download me-1"></i> Download
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-primary bg-opacity-75 text-white">
+                <h5 class="mb-0">Video Information</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="fw-bold">Title</h6>
+                <p id="titleDisplay" class="mb-3">Script title will appear here</p>
+                
+                <h6 class="fw-bold">Description</h6>
+                <p id="descriptionDisplay" class="mb-3">Description will appear here</p>
+                
+                <h6 class="fw-bold">Categories</h6>
+                <div id="categoriesContainer">
+                    <!-- Categories will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Full Script</h5>
+            </div>
+            <div class="card-body">
+                <div class="accordion" id="scriptAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                   data-bs-target="#introSection">
+                                Intro Hook (45-60 seconds)
+                            </button>
+                        </h2>
+                        <div id="introSection" class="accordion-collapse collapse show" 
+                             data-bs-parent="#scriptAccordion">
+                            <div class="accordion-body" id="introHookContent">
+                                <!-- Intro hook content will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                   data-bs-target="#backgroundSection">
+                                Background Setup (1-2 minutes)
+                            </button>
+                        </h2>
+                        <div id="backgroundSection" class="accordion-collapse collapse" 
+                             data-bs-parent="#scriptAccordion">
+                            <div class="accordion-body" id="backgroundSetupContent">
+                                <!-- Background setup content will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                   data-bs-target="#segmentsSection">
+                                Story Segments (8-10 minutes)
+                            </button>
+                        </h2>
+                        <div id="segmentsSection" class="accordion-collapse collapse" 
+                             data-bs-parent="#scriptAccordion">
+                            <div class="accordion-body">
+                                <div id="storySegmentsContainer">
+                                    <!-- Story segments will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                   data-bs-target="#consequencesSection">
+                                Consequences (2-3 minutes)
+                            </button>
+                        </h2>
+                        <div id="consequencesSection" class="accordion-collapse collapse" 
+                             data-bs-parent="#scriptAccordion">
+                            <div class="accordion-body" id="consequencesContent">
+                                <!-- Consequences content will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                   data-bs-target="#outroSection">
+                                Outro/Reflection (30-60 seconds)
+                            </button>
+                        </h2>
+                        <div id="outroSection" class="accordion-collapse collapse" 
+                             data-bs-parent="#scriptAccordion">
+                            <div class="accordion-body" id="outroContent">
+                                <!-- Outro content will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    </div>
+</div>
