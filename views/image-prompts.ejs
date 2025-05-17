@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h1 class="display-5 fw-bold">AI Image Prompts</h1>
+        <p class="lead">Generate image prompts for your video based on your script</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-primary bg-opacity-75 text-white">
+                <h5 class="mb-0">Generate Image Prompts</h5>
+            </div>
+            <div class="card-body">
+                <form id="imagePromptForm">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Image prompts will be generated for each paragraph in your script automatically.
+                    </div>
+                    
+                    <div id="noScriptWarning" class="alert alert-warning mb-3 d-none">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        No generated script found. Please go back to the home page and generate a script first.
+                        <div class="mt-2">
+                            <a href="/" class="btn btn-sm btn-primary">Create a Script</a>
+                        </div>
+                    </div>
+                      <input type="hidden" id="promptCount" value="5">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary" id="generatePromptsBtn">
+                            <span class="spinner-border spinner-border-sm d-none me-2" id="loadingSpinnerPrompts" role="status"></span>
+                            Generate Image Prompts
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Generated Image Prompts</h5>
+                <button class="btn btn-sm btn-light" id="copyAllPrompts" title="Copy all prompts">
+                    <i class="fas fa-copy me-1"></i> Copy All
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="imagePromptResult">
+                    <div class="text-center py-5 text-muted">
+                        <i class="fas fa-images fa-3x mb-3"></i>
+                        <p>Your generated image prompts will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

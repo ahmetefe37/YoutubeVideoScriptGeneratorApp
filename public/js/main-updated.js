@@ -78,18 +78,15 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       // Check if we already have image prompts
       const imagePromptsData = localStorage.getItem('generatedImagePrompts');
-        if (imagePromptsData) {
+      
+      if (imagePromptsData) {
         // Display existing image prompts
         try {
-          console.log('Found image prompts in local storage, attempting to display');
           const imagePrompts = JSON.parse(imagePromptsData);
-          console.log('Parsed image prompts:', imagePrompts);
           displayImagePrompts(imagePrompts);
         } catch (error) {
           console.error('Error parsing image prompts:', error);
         }
-      } else {
-        console.log('No image prompts found in localStorage');
       }
       
       // Add event listener for form submission
@@ -579,15 +576,11 @@ document.addEventListener('DOMContentLoaded', function() {
   /**
    * Display generated image prompts for each paragraph
    * @param {Object} data - Object with paragraphs and their corresponding image prompts
-   */  function displayImagePrompts(data) {
-    console.log('displayImagePrompts called with data:', data);
-    if (!imagePromptResult) {
-      console.error('imagePromptResult element not found in the page');
-      return;
-    }
+   */
+  function displayImagePrompts(data) {
+    if (!imagePromptResult) return;
     
     if (!data || !data.paragraphs || !data.paragraphs.length) {
-      console.warn('No valid paragraphs in image prompt data:', data);
       imagePromptResult.innerHTML = '<div class="alert alert-warning">No image prompts were generated. Please try again.</div>';
       return;
     }
@@ -597,6 +590,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Create container for paragraphs and their prompts
     const promptsContainer = document.createElement('div');
+    
     data.paragraphs.forEach((paragraph, index) => {
       const paragraphCard = document.createElement('div');
       paragraphCard.className = 'card mb-4 border-0 shadow-sm';
