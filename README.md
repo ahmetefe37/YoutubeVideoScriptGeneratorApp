@@ -8,6 +8,7 @@ VideoScriptAI is an AI-powered tool designed to help content creators generate e
 - Automatically categorizes your content (History, Mysteries, Culture, etc.)
 - Creates YouTube-optimized titles and descriptions
 - Structured scripts with intro hook, background setup, story segments, and conclusion
+- **Automatic image prompts** for each paragraph of your script for use with AI image generators
 - Clean, responsive user interface built with Bootstrap
 - Easy-to-use download and copy functionality
 
@@ -67,7 +68,9 @@ VideoScriptAI is an AI-powered tool designed to help content creators generate e
 1. Enter your video subject in the form on the home page
 2. Click "Generate Script" and wait for the AI to create your content
 3. View, copy, or download your complete script
-4. Use the script for your YouTube video creation
+4. Navigate to the "Image Prompts" page to view AI-generated image prompts for each paragraph
+5. Copy individual prompts or all prompts for use with image generation tools like DALL-E, Midjourney, or Stable Diffusion
+6. Use the script and generated images for your YouTube video creation
 
 ## Project Structure
 
@@ -84,6 +87,7 @@ VideoScriptGenerator/
 │   │   └── footer.ejs
 │   ├── index.ejs
 │   ├── script.ejs
+│   ├── image-prompts.ejs
 │   └── error.ejs
 ├── routes/
 │   └── scriptRoutes.js
@@ -101,7 +105,29 @@ VideoScriptGenerator/
 
 This project is licensed under the ISC License.
 
-## Acknowledgments
+## Image Prompts Feature
 
-- Google Gemini API for powerful text generation
-- Bootstrap for responsive UI components
+The Image Prompts feature automatically generates detailed, visually-descriptive text prompts for each paragraph in your script. These prompts are designed to work with AI image generation tools to create compelling visuals for your YouTube videos.
+
+### How It Works
+
+1. **Automatic Generation**: Image prompts are automatically created when you generate a new script
+2. **Paragraph-Based**: Each section of your script (intro hook, background setup, story segments, etc.) gets its own image prompt
+3. **AI-Optimized**: Prompts are tailored to work well with tools like DALL-E, Midjourney, and Stable Diffusion
+4. **Modern UI**: Clean card-based interface makes it easy to view and copy prompts
+
+### Image Prompt Structure
+
+Each image prompt is designed to include:
+
+- Detailed visual descriptions based on paragraph content
+- Style suggestions (cinematic, photorealistic, digital art, etc.)
+- Lighting, mood, and atmosphere guidance
+- Resolution/quality indicators (8k, highly detailed, etc.)
+
+### Usage Tips
+
+- For best results, use the exact prompt text without modification
+- Copy individual prompts using the copy button on each card
+- Use "Copy All" to get all prompts at once for batch processing
+- Try different AI image generation tools to see which gives the best results for your specific prompts

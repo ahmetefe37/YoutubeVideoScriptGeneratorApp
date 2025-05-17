@@ -21,7 +21,7 @@ const generateImagePrompts = async (script, count = 5) => {
       throw new Error('Script is required for image prompt generation');
     }    // Select the model and set parameters for creative image prompt generation
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-pro",
+      model: "gemini-2.0-flash",
       generationConfig: {
         temperature: 0.8,
         topP: 0.9,
@@ -121,7 +121,7 @@ const generateVideoScript = async (subject) => {
       throw new Error('Subject is required for script generation');
     }    // Select the model and set parameters for high-quality creative text generation
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-pro",
+      model: "gemini-2.0-flash",
       generationConfig: {
         temperature: 0.7,
         topP: 0.9,
