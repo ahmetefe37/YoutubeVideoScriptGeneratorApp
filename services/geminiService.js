@@ -131,7 +131,8 @@ const generateVideoScript = async (subject) => {
     });// Construct a detailed prompt based on the script rules
     const prompt = `
       Generate a YouTube video script about "${subject}" following these strict guidelines:
-      
+      0. SCRIPT SETTINGS: A video must be about 3000 words or 15000 characters long.
+
       1. CATEGORY: Identify one or more appropriate categories from this list:
          History, Legends, Mysteries, Inventions, Rules, Culture, What-If
       
@@ -150,9 +151,9 @@ const generateVideoScript = async (subject) => {
       
       4. SCRIPT STRUCTURE:
          - Intro Hook (45-60 sec): Introduce the question/scenario/claim
-         - Background Setup (1-2 min): Set time/place; real-world context
-         - Story Segments (8-10 min): 4-6 "mini-stories" or phases
-         - Consequences (2-3 min): Reflect on bigger impact, ripple effect
+         - Background Setup (1-3 min): Set time/place; real-world context
+         - Story Segments (8-10 min): 8-10 "mini-stories" or phases. There should be a few sentences between each segment. Each segment must be at least 1000 characters long.
+         - Consequences (1-3 min): Reflect on bigger impact, ripple effect
          - Outro/Reflection (30-60 sec): Conclude, pose question to audience
       
       5. TONE: Calm, curious, cinematic, reflective with simple, emotional language
