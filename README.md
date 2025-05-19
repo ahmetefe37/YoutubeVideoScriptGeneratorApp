@@ -9,6 +9,7 @@ VideoScriptAI is an AI-powered tool designed to help content creators generate e
 - Creates YouTube-optimized titles and descriptions
 - Structured scripts with intro hook, background setup, story segments, and conclusion
 - **Automatic image prompts** for each paragraph of your script for use with AI image generators
+- **Multi-language translations** into 8 different languages (Turkish, Russian, Chinese, French, Italian, Spanish, Hindi, Japanese)
 - Clean, responsive user interface built with Bootstrap
 - Easy-to-use download and copy functionality
 
@@ -70,7 +71,8 @@ VideoScriptAI is an AI-powered tool designed to help content creators generate e
 3. View, copy, or download your complete script
 4. Navigate to the "Image Prompts" page to view AI-generated image prompts for each paragraph
 5. Copy individual prompts or all prompts for use with image generation tools like DALL-E, Midjourney, or Stable Diffusion
-6. Use the script and generated images for your YouTube video creation
+6. Use the "Translate" button to access translations of your script into multiple languages
+7. Use the script, translations, and generated images for your YouTube video creation
 
 ## Project Structure
 
@@ -80,7 +82,8 @@ VideoScriptGenerator/
 │   ├── css/
 │   │   └── style.css
 │   └── js/
-│       └── main.js
+│       ├── main.js
+│       └── translations.js
 ├── views/
 │   ├── partials/
 │   │   ├── header.ejs
@@ -88,6 +91,7 @@ VideoScriptGenerator/
 │   ├── index.ejs
 │   ├── script.ejs
 │   ├── image-prompts.ejs
+│   ├── translations.ejs
 │   └── error.ejs
 ├── routes/
 │   └── scriptRoutes.js
@@ -131,3 +135,41 @@ Each image prompt is designed to include:
 - Copy individual prompts using the copy button on each card
 - Use "Copy All" to get all prompts at once for batch processing
 - Try different AI image generation tools to see which gives the best results for your specific prompts
+
+## Translation Feature
+
+The Translation feature enables you to translate your video scripts into eight different languages, expanding your potential audience reach globally.
+
+### Supported Languages
+
+- Turkish
+- Russian
+- Chinese
+- French
+- Italian
+- Spanish
+- Hindi
+- Japanese
+
+### How It Works
+
+1. **Generate a script** using the main form
+2. **Access translations** by clicking the "Translate Script" button or navigating to the Translations page
+3. **Select a language tab** from the available options
+4. **Click "Translate"** for your desired language
+5. **Download or copy** the translated script in text format
+
+### Translation Features
+
+- **Tab-based interface** for easy navigation between languages
+- **Real-time translation** using Google's Gemini API
+- **Download option** to save translations as text files
+- **Copy functionality** to easily paste translations into other applications
+- **Formatted output** that maintains the original script structure (intro, segments, outro)
+
+### Usage Tips
+
+- Translations maintain the same formatting as the original script
+- For best results, review machine translations for any context-specific issues
+- Downloaded translations include metadata like title, categories, and description
+- Use translated scripts for creating international versions of your videos or for subtitles
