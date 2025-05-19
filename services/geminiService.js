@@ -203,7 +203,96 @@ const generateVideoScript = async (subject) => {
   }
 };
 
+/**
+ * Translate script content to specified language
+ * @param {Object} script - The video script object to translate
+ * @param {string} targetLanguage - The language to translate to (e.g., "Turkish", "French")
+ * @returns {Object} - The translated script
+ */
+const translateScript = async (script, targetLanguage) => {
+  try {
+    // Validate inputs
+    if (!script) {
+      throw new Error('Script is required for translation');
+    }
+    
+    if (!targetLanguage) {
+      throw new Error('Target language is required for translation');
+    }
+    
+    // Select the model for translation
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.0-flash",
+      generationConfig: {
+        temperature: 0.2, // Lower temperature for more accurate translations
+        topP: 0.9,
+        topK: 40,
+        maxOutputTokens: 8192,
+      },
+    });
+
+    // Create a copy of the script object to avoid modifying the original
+    const translatedScript = JSON.parse(JSON.stringify(script));
+    
+    // Extract the content that needs to be translated
+    const { title, description, script: scriptContent } = script;
+    
+    // Create translation prompt
+    const prompt = `
+      You are a professional translator fluent in ${targetLanguage}. 
+      Translate the following YouTube video script from English to ${targetLanguage} accurately.
+      Maintain the original meaning, tone, and style.
+      
+      Only translate the text within the provided JSON structure, keeping all JSON properties intact.
+      
+      Script to translate:
+      ${JSON.stringify({ title, description, scriptContent }, null, 2)}
+      
+      Respond ONLY with the translated JSON without any explanations or comments.
+      Do not include markdown code blocks or backticks in your response.
+    `;
+    
+    // Generate the translation
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    let text = response.text();
+    
+    // Clean up and parse the response
+    text = text.replace(/```json|```/g, '').trim();
+    
+    try {
+      // Parse the response and update the translated script
+      const translatedContent = JSON.parse(text);
+      
+      translatedScript.title = translatedContent.title;
+      translatedScript.description = translatedContent.description;
+      
+      if (translatedContent.scriptContent) {
+        translatedScript.script.introHook = translatedContent.scriptContent.introHook;
+        translatedScript.script.backgroundSetup = translatedContent.scriptContent.backgroundSetup;
+        translatedScript.script.consequences = translatedContent.scriptContent.consequences;
+        translatedScript.script.outro = translatedContent.scriptContent.outro;
+        
+        // Handle story segments
+        if (Array.isArray(translatedContent.scriptContent.storySegments)) {
+          translatedScript.script.storySegments = translatedContent.scriptContent.storySegments;
+        }
+      }
+      
+      return translatedScript;
+    } catch (jsonError) {
+      console.error('Failed to parse translation JSON response:', jsonError);
+      console.log('Raw translation response:', text);
+      throw new Error('The AI translation response was not in valid JSON format. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error translating script:', error);
+    throw new Error('Failed to translate script: ' + error.message);
+  }
+};
+
 module.exports = {
   generateVideoScript,
-  generateImagePrompts
+  generateImagePrompts,
+  translateScript
 };

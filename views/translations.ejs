@@ -1,0 +1,264 @@
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1 class="display-5 fw-bold">Script Translations</h1>
+        <p class="lead">Translate your generated script into multiple languages</p>
+        
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <i class="fas fa-info-circle me-2"></i>
+            <div>
+                First, generate and save a script, then use this page to translate it to different languages.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-language me-2"></i>
+                        <span id="currentScriptTitle">No Script Selected</span>
+                    </h5>
+                    <button class="btn btn-sm btn-outline-light" id="loadCurrentScript">
+                        <i class="fas fa-sync-alt me-1"></i> Load Current Script
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <ul class="nav nav-tabs card-header-tabs" id="translationTabs" role="tablist">
+                    <!-- Language tabs -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="turkish-tab" data-bs-toggle="tab" data-bs-target="#turkish-content" 
+                                type="button" role="tab" aria-selected="true">Turkish</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="russian-tab" data-bs-toggle="tab" data-bs-target="#russian-content" 
+                                type="button" role="tab" aria-selected="false">Russian</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="chinese-tab" data-bs-toggle="tab" data-bs-target="#chinese-content" 
+                                type="button" role="tab" aria-selected="false">Chinese</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="french-tab" data-bs-toggle="tab" data-bs-target="#french-content" 
+                                type="button" role="tab" aria-selected="false">French</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="italian-tab" data-bs-toggle="tab" data-bs-target="#italian-content" 
+                                type="button" role="tab" aria-selected="false">Italian</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="spanish-tab" data-bs-toggle="tab" data-bs-target="#spanish-content" 
+                                type="button" role="tab" aria-selected="false">Spanish</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="hindi-tab" data-bs-toggle="tab" data-bs-target="#hindi-content" 
+                                type="button" role="tab" aria-selected="false">Hindi</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="japanese-tab" data-bs-toggle="tab" data-bs-target="#japanese-content" 
+                                type="button" role="tab" aria-selected="false">Japanese</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="translationTabContent">
+                    <!-- Turkish Tab -->
+                    <div class="tab-pane fade show active" id="turkish-content" role="tabpanel" aria-labelledby="turkish-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Turkish Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Turkish">
+                                    <i class="fas fa-language me-2"></i> Translate to Turkish
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Turkish">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Turkish">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="turkish-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="turkish-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Russian Tab -->
+                    <div class="tab-pane fade" id="russian-content" role="tabpanel" aria-labelledby="russian-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Russian Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Russian">
+                                    <i class="fas fa-language me-2"></i> Translate to Russian
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Russian">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Russian">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="russian-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="russian-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chinese Tab -->
+                    <div class="tab-pane fade" id="chinese-content" role="tabpanel" aria-labelledby="chinese-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Chinese Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Chinese">
+                                    <i class="fas fa-language me-2"></i> Translate to Chinese
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Chinese">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Chinese">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="chinese-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="chinese-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- French Tab -->
+                    <div class="tab-pane fade" id="french-content" role="tabpanel" aria-labelledby="french-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>French Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="French">
+                                    <i class="fas fa-language me-2"></i> Translate to French
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="French">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="French">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="french-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="french-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Italian Tab -->
+                    <div class="tab-pane fade" id="italian-content" role="tabpanel" aria-labelledby="italian-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Italian Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Italian">
+                                    <i class="fas fa-language me-2"></i> Translate to Italian
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Italian">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Italian">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="italian-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="italian-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Spanish Tab -->
+                    <div class="tab-pane fade" id="spanish-content" role="tabpanel" aria-labelledby="spanish-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Spanish Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Spanish">
+                                    <i class="fas fa-language me-2"></i> Translate to Spanish
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Spanish">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Spanish">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="spanish-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="spanish-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hindi Tab -->
+                    <div class="tab-pane fade" id="hindi-content" role="tabpanel" aria-labelledby="hindi-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Hindi Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Hindi">
+                                    <i class="fas fa-language me-2"></i> Translate to Hindi
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Hindi">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Hindi">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="hindi-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="hindi-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Japanese Tab -->
+                    <div class="tab-pane fade" id="japanese-content" role="tabpanel" aria-labelledby="japanese-tab">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Japanese Translation</h5>
+                            <div>
+                                <button class="btn btn-primary translate-btn" data-language="Japanese">
+                                    <i class="fas fa-language me-2"></i> Translate to Japanese
+                                </button>                                <button class="btn btn-outline-secondary copy-translation ms-2" data-language="Japanese">
+                                    <i class="fas fa-copy me-1"></i> Copy as Text
+                                </button>
+                                <button class="btn btn-outline-dark download-translation ms-2" data-language="Japanese">
+                                    <i class="fas fa-download me-1"></i> Download TXT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="translation-status" id="japanese-status"></div>
+                        <div class="translation-content border rounded p-3 bg-light" id="japanese-translation">
+                            <p class="text-muted fst-italic">Translation will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Spinner Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h5 class="mb-2">Translating Your Script</h5>
+                <p class="mb-0 text-muted">This may take a minute or two. Please be patient...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for this page -->
+<script src="/js/translations.js"></script>

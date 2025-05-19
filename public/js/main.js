@@ -225,6 +225,12 @@ document.addEventListener('DOMContentLoaded', function() {
       promptsBtn.innerHTML = '<i class="fas fa-images me-2"></i>View Image Prompts';
       preview.appendChild(promptsBtn);
     }
+      // Add translations button
+    const translationsBtn = document.createElement('a');
+    translationsBtn.href = '/translations';
+    translationsBtn.className = 'btn btn-warning ms-2';
+    translationsBtn.innerHTML = '<i class="fas fa-language me-2"></i>Translate Script';
+    preview.appendChild(translationsBtn);
     
     // Add to result container
     scriptResult.appendChild(preview);
@@ -242,6 +248,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scriptData) {
       try {
         const script = JSON.parse(scriptData);
+        
+        // Store as current script for translations
+        localStorage.setItem('currentScript', scriptData);
         
         // Set page title
         document.title = `${script.title} - VideoScriptAI`;
@@ -354,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scriptData) {
       try {
         const script = JSON.parse(scriptData);
-        const filename = `${script.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_script.txt`;
+        const filename = `${script.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_english.txt`;
         const content = formatScriptForDownload(script);
         
         // Create download link
@@ -410,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scriptData) {
       try {
         const script = JSON.parse(scriptData);
-        const filename = `${script.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_script.txt`;
+        const filename = `${script.title}_english.txt`;
         const content = formatScriptForDownload(script);
         
         // Create download link

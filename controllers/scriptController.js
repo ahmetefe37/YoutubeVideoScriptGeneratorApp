@@ -3,7 +3,7 @@
  * Handles all script generation request logic
  */
 
-const { generateVideoScript, generateImagePrompts } = require('../services/geminiService');
+const { generateVideoScript, generateImagePrompts, translateScript } = require('../services/geminiService');
 
 /**
  * Render the home page
@@ -87,10 +87,54 @@ const getImagePromptPage = (req, res) => {
   res.render('image-prompts', { title: 'AI Image Prompts' });
 };
 
+/**
+ * Render the translations page
+ */
+const getTranslationsPage = (req, res) => {
+  res.render('translations', { title: 'Script Translations' });
+};
+
+/**
+ * Translate a script to the specified language
+ */
+const translateScriptToLanguage = async (req, res) => {
+  try {
+    const { script, language } = req.body;
+    
+    if (!script) {
+      return res.status(400).json({ error: 'Script data is required' });
+    }
+    
+    if (!language) {
+      return res.status(400).json({ error: 'Target language is required' });
+    }
+    
+    // Supported languages validation
+    const supportedLanguages = [
+      'Turkish', 'Russian', 'Chinese', 'French', 
+      'Italian', 'Spanish', 'Hindi', 'Japanese'
+    ];
+    
+    if (!supportedLanguages.includes(language)) {
+      return res.status(400).json({ 
+        error: `Unsupported language. Supported languages: ${supportedLanguages.join(', ')}` 
+      });
+    }
+    
+    const translatedScript = await translateScript(script, language);
+    res.status(200).json({ translatedScript });
+  } catch (error) {
+    console.error('Translation error:', error);
+    res.status(500).json({ error: error.message || 'Error translating script' });
+  }
+};
+
 module.exports = {
   getHomePage,
   createScript,
   getScriptPage,
   createImagePrompts,
-  getImagePromptPage
+  getImagePromptPage,
+  getTranslationsPage,
+  translateScriptToLanguage
 };

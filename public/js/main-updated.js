@@ -407,7 +407,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scriptData) {
       try {
         const script = JSON.parse(scriptData);
-        const filename = `${script.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_script.txt`;
+        //const filename = `${script.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_english.txt`;
+        const filename = `${scriptTitle}_english.txt`;
         const content = formatScriptForDownload(script);
         
         // Create download link

@@ -137,8 +137,34 @@ footer {
   margin-top: 4rem;
 }
 
-/* Responsive adjustments */
+/* Translation page styles */
+.translation-content {
+  max-height: 500px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.tab-pane {
+  padding: 15px 0;
+}
+
+.translation-status {
+  min-height: 70px;
+}
+
+/* Make tabs scrollable on mobile */
 @media (max-width: 768px) {
+  .nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .nav-tabs .nav-link {
+    white-space: nowrap;
+  }
+  
   .hero {
     padding: 2rem 0;
   }

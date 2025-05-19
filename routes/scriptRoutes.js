@@ -5,7 +5,15 @@
 
 const express = require('express');
 const router = express.Router();
-const { getHomePage, createScript, getScriptPage, createImagePrompts, getImagePromptPage } = require('../controllers/scriptController');
+const { 
+  getHomePage, 
+  createScript, 
+  getScriptPage, 
+  createImagePrompts, 
+  getImagePromptPage,
+  getTranslationsPage,
+  translateScriptToLanguage
+} = require('../controllers/scriptController');
 
 // Home page route
 router.get('/', getHomePage);
@@ -19,5 +27,9 @@ router.get('/script', getScriptPage);
 // Image prompts routes
 router.get('/image-prompts', getImagePromptPage);
 router.post('/api/image-prompts', createImagePrompts);
+
+// Translation routes
+router.get('/translations', getTranslationsPage);
+router.post('/api/translate', translateScriptToLanguage);
 
 module.exports = router;
